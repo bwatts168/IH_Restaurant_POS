@@ -1,0 +1,171 @@
+﻿<Window x:Class="IH_Restaurant_POS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IH_Restaurant_POS"
+        mc:Ignorable="d"
+        Title="IH POS Systems" Height="1080" Width="1920" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Loaded="Window_Loaded" Closing="Window_Closing" WindowState="Maximized">
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/Window_Background.png"/>
+    </Window.Background>
+    <!--#region Full Window-->
+    <Grid Width="1920" Height="1020">
+        <!--#region Title Bar-->
+        <Grid x:Name="TitleBar" Height="75" VerticalAlignment="Top">
+            <Image Width="250" Height="75" HorizontalAlignment="Left" Source="Resources/Button_Home.png"></Image>
+            <Image Width="250" Height="75" HorizontalAlignment="Left" Source="Resources/Button_Tables.png" Margin="255,0,0,0"></Image>
+            <Grid Width="1371" HorizontalAlignment="Right">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Resources/MessageBar_Background.png"/>
+                </Grid.Background>
+                <Label x:Name="statusBar" Content="TABLE 11"  Height="50" Width="1340" FontFamily="Agency FB Bold" Foreground="White" FontSize="33.333"/>
+            </Grid>
+        </Grid>
+        <!--#endregion-->
+        
+        <!--#region Menu-->
+        <Grid Width="1305" Height="930" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,80,0,0">
+            <Grid.Background>
+                <ImageBrush ImageSource="Resources/Menu_Background.png"/>
+            </Grid.Background>
+            <Grid Width="1275" Height="910">
+                <!--#region Appetizer Window-->
+                <Grid x:Name="App_Window" Width="1210" HorizontalAlignment="Right">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Resources/Menu_Appetizer_Background.png"/>
+                    </Grid.Background>
+                    <Grid Background="White" Width="1190" Height="890">
+                        <Grid Width="300" HorizontalAlignment="Left">
+                            <Label FontFamily="Agency FB Bold" Content="Appetizer" FontSize="64" Height="100" VerticalAlignment="Top">
+                                <Label.Background>
+                                    <SolidColorBrush Color="#FFFFB966" Opacity="0.75"/>
+                                </Label.Background>
+                            </Label>
+                            <ListBox x:Name="Menu_App_lbSideBar" BorderBrush="{x:Null}" FontFamily="Agency FB Bold" Height="790" VerticalAlignment="Bottom" FontSize="48" SelectionChanged="Menu_App_lbSideBar_SelectionChanged">
+                                <ListBox.Background>
+                                    <SolidColorBrush Color="#FFFFB966" Opacity="0.75"/>
+                                </ListBox.Background>
+                            </ListBox>
+                        </Grid>
+                        <Grid Width="890" HorizontalAlignment="Right">
+                            <Label x:Name="Menu_App_labelWindow" FontFamily="Agency FB Bold" Content="Single Order Appetizers" FontSize="64" Height="100" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <!--#endregion-->
+                <!--#region Entree Window-->
+                <Grid x:Name="Entree_Window" Width="1210" HorizontalAlignment="Right">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Resources/Menu_Entree_Background.png"/>
+                    </Grid.Background>
+                    <Grid Width="1190" Height="890" Background="White">
+                        <Grid Width="300" HorizontalAlignment="Left">
+                            <Label FontFamily="Agency FB Bold" Content="Entree" FontSize="64" Height="100" VerticalAlignment="Top">
+                                <Label.Background>
+                                    <SolidColorBrush Color="#FFFF6666" Opacity="0.75"/>
+                                </Label.Background>
+                            </Label>
+                            <ListBox x:Name="Menu_Entree_lbSideBar" BorderBrush="{x:Null}" FontFamily="Agency FB Bold" Height="790" VerticalAlignment="Bottom" FontSize="48" SelectionChanged="Menu_Entree_lbSideBar_SelectionChanged">
+                                <ListBox.Background>
+                                    <SolidColorBrush Color="#FFFF6666" Opacity="0.75"/>
+                                </ListBox.Background>
+                            </ListBox>
+                        </Grid>
+                        <Grid Width="890" HorizontalAlignment="Right">
+                            <Label x:Name="Menu_Entree_labelWindow" FontFamily="Agency FB Bold" Content="Build A Burger" FontSize="64" Height="100" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                            <ListBox x:Name="lbEntreeBurger" Height="790" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <!--#endregion-->
+                <!--#region Dessert Window-->
+                <Grid x:Name="Dessert_Window" Width="1210" HorizontalAlignment="Right">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Resources/Menu_Dessert_Background.png"/>
+                    </Grid.Background>
+                    <Grid Width="1190" Height="890" Background="White">
+                        <Grid Width="300" HorizontalAlignment="Left">
+                            <Label FontFamily="Agency FB Bold" Content="Dessert" FontSize="64" Height="100" VerticalAlignment="Top">
+                                <Label.Background>
+                                    <SolidColorBrush Color="#FF6DFF66" Opacity="0.75"/>
+                                </Label.Background>
+                            </Label>
+                            <ListBox x:Name="Menu_Dessert_lbSideBar" BorderBrush="{x:Null}" FontFamily="Agency FB Bold" Height="790" VerticalAlignment="Bottom" FontSize="48" SelectionChanged="Menu_Dessert_lbSideBar_SelectionChanged">
+                                <ListBox.Background>
+                                    <SolidColorBrush Color="#FF6DFF66" Opacity="0.75"/>
+                                </ListBox.Background>
+                            </ListBox>
+                        </Grid>
+                        <Grid Width="890" HorizontalAlignment="Right">
+                            <Label x:Name="Menu_Dessert_labelWindow" FontFamily="Agency FB Bold" Content="Single Order Desserts" FontSize="64" Height="100" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                        </Grid>
+                    </Grid>                    
+                </Grid>
+                <!--#endregion-->
+                <!--#region Beverage Window-->
+                <Grid x:Name="Bev_Window" Width="1210" HorizontalAlignment="Right">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Resources/Menu_Beverage_Background.png"/>
+                    </Grid.Background>
+                    <Grid Width="1190" Height="890" Background="White">
+                        <Grid Width="300" HorizontalAlignment="Left">
+                            <Label FontFamily="Agency FB Bold" Content="Beverages" FontSize="64" Height="100" VerticalAlignment="Top">
+                                <Label.Background>
+                                    <SolidColorBrush Color="#FF66C0FF" Opacity="0.75"/>
+                                </Label.Background>
+                            </Label>
+                            <ListBox x:Name="Menu_Bev_lbSideBar" BorderBrush="{x:Null}" FontFamily="Agency FB Bold" Height="790" VerticalAlignment="Bottom" FontSize="48" SelectionChanged="Menu_Bev_lbSideBar_SelectionChanged">
+                                <ListBox.Background>
+                                    <SolidColorBrush Color="#FF66C0FF" Opacity="0.75"/>
+                                </ListBox.Background>
+                            </ListBox>
+                        </Grid>
+                        <Grid Width="890" HorizontalAlignment="Right">
+                            <Label x:Name="Menu_Bev_labelWindow" FontFamily="Agency FB Bold" Content="Fountain Drinks" FontSize="64" Height="100" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                            <ListBox x:Name="lbTest" Height="790" VerticalAlignment="Bottom"/>
+                        </Grid>
+                    </Grid>                    
+                </Grid>
+                <!--#endregion-->
+                <!--#region Menu Tabs-->
+                <Grid x:Name="App_Tab" Width="65" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="212" MouseDown="App_Tab_MouseDown">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Resources/Menu_Appetizer_Tab.png"/>
+                    </Grid.Background>
+                </Grid>
+                <Grid x:Name="Entree_Tab" Width="65" Margin="0,217,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="212" MouseDown="Entree_Tab_MouseDown">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Resources/Menu_Entree_Tab.png"/>
+                    </Grid.Background>
+                </Grid>
+                <Grid x:Name="Dessert_Tab" Width="65" Margin="0,444,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="212" MouseDown="Dessert_Tab_MouseDown">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Resources/Menu_Dessert_Tab.png"/>
+                    </Grid.Background>
+                </Grid>
+                <Grid x:Name="Bev_Tab" Width="65" Margin="0,667,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="212" MouseDown="Bev_Tab_MouseDown">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Resources/Menu_Beverage_Tab.png"/>
+                    </Grid.Background>
+                </Grid>
+                <!--#endregion-->
+            </Grid>
+        </Grid>
+        <!--#endregion-->
+        
+        <!--#region Bill Window-->
+        <Grid Width="581" Height="930" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,80,10,0">
+            <Grid.Background>
+                <ImageBrush ImageSource="Resources/Bill_Background.png"/>
+            </Grid.Background>
+            <Grid>
+                <ListBox x:Name="lbBill" Width="560" Height="910" FontFamily="Lucida Console" FontSize="26.667" HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"></ListBox>
+            </Grid>
+
+        </Grid>
+        <!--#endregion-->
+        
+    </Grid>
+    <!--#endregion-->
+</Window>
